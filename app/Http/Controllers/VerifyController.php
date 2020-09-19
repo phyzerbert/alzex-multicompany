@@ -32,10 +32,18 @@ class VerifyController extends Controller
         }
     }
 
-    public function lang($locale)
-    {
+    public function lang($locale) {
         App::setLocale($locale);
         session()->put('locale', $locale);
         return redirect()->back();
+    }
+
+    public function auth_check(Request $request) {
+        $auth_id = $request->get('id');
+        if($auth_id == auth()->id()) {
+            return response()->json('success');
+        } else {
+            return response()->json('fail');
+        }
     }
 }

@@ -27,7 +27,7 @@
               left: 0;
               width: 100%;
               height: 100%;
-              background-color: rgba(0, 0, 0, 0.3);
+              background-color: rgba(51, 51, 51, 0.96);
               z-index: 1100;
         }
     </style>
@@ -104,6 +104,28 @@
 			} 
 
 		}
+		///// Ajax Setup
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		///// Security Fix
+		let auth_id = "{{auth()->id()}}";
+		$("#ajax-loading").show();
+		$.ajax({
+			url: "{{route('auth_check')}}",
+			data: {id: auth_id},
+			method: 'POST',
+			dataType: 'json',
+			success: function (response) {
+				$("#ajax-loading").hide();
+			},
+			error: function(errors) {
+				console.log(errors);
+				window.location.href = '/login';
+			}
+		});
 
 
 	</script>

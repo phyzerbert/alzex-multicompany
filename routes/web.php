@@ -62,3 +62,5 @@ Route::get('/transaction/delete/{id}', 'TransactionController@delete')->name('tr
 Route::post('/set_pagesize', 'HomeController@set_pagesize')->name('set_pagesize');
 
 Route::post('/get_transaction', 'TransactionController@get_transaction')->name('get_transaction');
+
+Route::post('/auth_check', 'VerifyController@auth_check')->name('auth_check');
