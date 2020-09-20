@@ -50,13 +50,13 @@ class HomeController extends Controller
         $search_accounts = $company->accounts()->pluck('id')->toArray();
         $first_transaction = $company->transactions()->orderBy('timestamp')->first();
 
-        if($first_transaction){
-            $from = date('Y-m-d', strtotime("-1 day", strtotime($first_transaction->timestamp)));
-        }else{
-            $from = date('Y-m-d', strtotime("-1 days"));
-        }
+        // if($first_transaction){
+        //     $from = date('Y-m-d', strtotime("-1 day", strtotime($first_transaction->timestamp)));
+        // }else{
+        //     $from = date('Y-m-d', strtotime("-1 days"));
+        // }
         
-        // $from = Carbon::now()->startOfMonth()->format('Y-m-d');
+        $from = Carbon::now()->startOfMonth()->format('Y-m-d');
         $to = date('Y-m-d', strtotime("+1 days"));
         $period = $spec_date = ''; 
             
