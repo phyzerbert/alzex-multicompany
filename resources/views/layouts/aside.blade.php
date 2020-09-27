@@ -42,6 +42,7 @@
                     <li class="nav-item"><a href="{{route('company.index')}}" class="nav-link @if($page == 'company') active @endif"><i class="icon-office"></i><span>{{__('page.company')}}</span></a></li>
                     <li class="nav-item"><a href="{{route('account.index')}}" class="nav-link @if($page == 'account') active @endif"><i class="icon-credit-card"></i><span>{{__('page.account')}}</span></a></li>
                     <li class="nav-item"><a href="{{route('users.index')}}" class="nav-link @if($page == 'user') active @endif"><i class="icon-users2"></i><span>{{__('page.user')}}</span></a></li>
+                    <li class="nav-item"><a href="{{route('advanced_delete')}}" class="nav-link @if($page == 'advanced_delete') active @endif"><i class="icon-trash"></i><span>{{__('page.advanced_delete')}}</span></a></li>
                 @endif
             </ul>
         </div>

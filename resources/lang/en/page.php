@@ -116,4 +116,17 @@ return [
     'invalid_credentials_were_provided' => 'Invalid credentials were provided',
     'internal_error' => 'Internal Error',
 
+    'password_rule' => 'Password must contain at least one uppercase, one lowercase, one special character.',
+    'same_password' => 'The new password must be different with old password.',
+
+    'advanced_delete' => 'Advanced Delete',
+    'all_users' => 'All Users',
+    'request' => 'Request',
+    'verification_code' => 'Verification Code',
+    'input_verification_code' => 'Please check your email and then enter the verification code.',
+    'confirm' => 'Confirm',
+    'invalid_email_address' => 'Invalid Email Address',
+    'delete_verification_greeting' => 'Hello, Please verify with code.',
+    'your_requested_data' => 'Your Requested Data',
+
 ];

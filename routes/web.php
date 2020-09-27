@@ -59,6 +59,10 @@ Route::get('/transaction/edit/{id}', 'TransactionController@edit')->name('transa
 Route::post('/transaction/update', 'TransactionController@update')->name('transaction.update');
 Route::get('/transaction/delete/{id}', 'TransactionController@delete')->name('transaction.delete');
 
+Route::get('/advanced_delete', function(){return view('advanced_delete');})->name('advanced_delete');
+Route::post('/advanced_delete/request', 'HomeController@advanced_delete_request')->name('advanced_delete.request');
+Route::post('/advanced_delete/verify', 'HomeController@advanced_delete_verify')->name('advanced_delete.verify');
+
 Route::post('/set_pagesize', 'HomeController@set_pagesize')->name('set_pagesize');
 
 Route::post('/get_transaction', 'TransactionController@get_transaction')->name('get_transaction');

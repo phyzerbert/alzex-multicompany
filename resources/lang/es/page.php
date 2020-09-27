@@ -28,6 +28,7 @@ return [
     'user' => 'Usuarios',
     'category' => 'Categorías',
     'account' => 'Cuentas',
+    'company' => 'Empresa',
 
     
     // ******** Common ********
@@ -112,5 +113,18 @@ return [
     'concurrent_verifications_to_the_same_number_are_not_allowed' => 'No se permiten verificaciones concurrentes al mismo número.',
     'invalid_credentials_were_provided' => 'Se proporcionaron credenciales inválidas',
     'internal_error' => 'Error interno',
+
+    'password_rule' => 'La contraseña debe contener al menos una mayúscula, una minúscula y un carácter especial.',
+    'same_password' => 'La nueva contraseña debe ser diferente a la anterior.',
+
+    'advanced_delete' => 'Eliminación avanzada',
+    'all_users' => 'Todos los usarios',
+    'request' => 'Solicitud',
+    'verification_code' => 'Código de verificación',
+    'input_verification_code' => 'Por favor revise su correo electrónico y luego ingrese el código de verificación.',
+    'confirm' => 'Confirm',
+    'invalid_email_address' => 'Dirección de correo electrónico no válida',
+    'delete_verification_greeting' => 'Hola, por favor verifique con el código.',
+    'your_requested_data' => 'Sus datos solicitados',
 
 ];

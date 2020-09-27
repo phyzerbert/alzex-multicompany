@@ -77,4 +77,58 @@ class HomeController extends Controller
         $request->session()->put('pagesize', $pagesize);
         return back();
     }
+
+    public function advanced_delete_request(Request $request) {
+        $request_data = $request->all();
+        $request_data['verification_code'] = str_random(8);
+        session(['advanced_delete_request_data' => $request_data]);
+        if (filter_var(Auth::user()->email, FILTER_VALIDATE_EMAIL)) {
+            $to_email = Auth::user()->email;
+            Mail::to($to_email)->send(new DeleteVerification($request_data, 'Advanced Delete Verification'));
+        } else {
+            return response()->json(['status' => 400, 'message' => __('page.invalid_email')]);
+        }
+        $data = [
+            'status' => 200,
+            'data' => $request->all(),
+        ];
+        return response()->json($data);
+    }
+
+    public function advanced_delete_verify(Request $request) {
+        $request_data = session(['advanced_delete_request_data']);
+        $verification_code = $request->get('verification_code');
+        if($verification_code != $request_data['verification_code']) {
+            $response_data = ['status' => 400, 'message' => __('page.incorrect_verificaiton_code')];
+        } else {
+            $mod = new Transaction();
+            if($request_data['period'] != '') {
+                $period = $request_data['period'];
+                $from = substr($period, 0, 10);
+                $to = substr($period, 14, 10);
+                $mod = $mod->whereBetween('timestamp', [$from, $to]);
+            }
+            if($request_data['user'] != '') {
+                $user_array = explode(',', $request_data['user']);
+                $mod = $mod->whereIn('user_id', $user_array);
+            }
+            $purchases = $mod->delete();
+            $response_data = [
+                'status' => 200,
+                'message' => __('page.deleted_successfully'),
+            ];   
+        }
+        session()->forget('some_advanced_delete_request_datadata');
+        return response()->json($response_data);
+    }
+
+    public function check_email() {
+        $data = [
+            'period' => '2020-01-15 to 2020-12-30',
+            'supplier' => '',
+            'all_users' => '0',
+            'verification_code' => str_random(8),
+        ];
+        return view('email.delete_verification', compact('data'));
+    }
 }
