@@ -84,7 +84,7 @@ class HomeController extends Controller
         session(['advanced_delete_request_data' => $request_data]);
         if (filter_var(Auth::user()->email, FILTER_VALIDATE_EMAIL)) {
             $to_email = Auth::user()->email;
-            // Mail::to($to_email)->send(new DeleteVerification($request_data, 'Advanced Delete Verification'));
+            Mail::to($to_email)->send(new DeleteVerification($request_data, 'Advanced Delete Verification'));
         } else {
             return response()->json(['status' => 400, 'message' => __('page.invalid_email_address')]);
         }
@@ -99,7 +99,7 @@ class HomeController extends Controller
         $request_data = session('advanced_delete_request_data');
         $verification_code = $request->get('verification_code');
         if($verification_code != $request_data['verification_code']) {
-            $response_data = ['status' => 400, 'message' => __('page.incorrect_verificaiton_code')];
+            $response_data = ['status' => 400, 'message' => __('page.incorrect_verification_code')];
         } else {
             $mod = new Transaction();
             if($request_data['period'] != '') {

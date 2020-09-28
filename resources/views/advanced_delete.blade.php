@@ -39,14 +39,14 @@
                             </div>
                             
                             <div class="form-layout-footer mt-3">
-                                <button type="submit" class="btn btn-primary" id="btn_request"><i class="fa fa-paper-plane mr-2"></i> {{__('page.request')}}</button>
+                                <button type="submit" class="btn btn-primary" id="btn_request">{{__('page.request')}}</button>
                             </div>
                             <div class="form-group mt-3 verify" style="display: none">
                                 <label class="form-control-label">{{__('page.verification_code')}}</label>
-                                <input class="form-control" type="text" name="verification_code" placeholder="{{__('page.input_verification_code')}}">
+                                <input class="form-control" type="text" name="verification_code" id="verification_code" placeholder="{{__('page.input_verification_code')}}">
                             </div>
                             <div class="form-layout-footer mt-3 verify" style="display: none">
-                                <button type="button" class="btn btn-primary" id="btn_verify"><i class="fa fa-check mr-2"></i> {{__('page.confirm')}}</button>
+                                <button type="button" class="btn btn-primary" id="btn_verify">{{__('page.confirm')}}</button>
                             </div>
                         </form>
                     </div>
@@ -69,6 +69,7 @@
             .select2({
                 width: 'resolve',
                 multiple: true,
+                placeholder: "{{__('page.user')}}",
             });
 
         $("#delete_form").submit(function(e){
