@@ -1,7 +1,5 @@
 @extends('layouts.master')
-@section('style')    
-    <link href="{{asset('master/plugins/select2/dist/css/select2.css')}}" rel="stylesheet">
-    <link href="{{asset('master/plugins/select2/dist/css/select2-bootstrap.css')}}" rel="stylesheet">
+@section('style')
     <link href="{{asset('master/global_assets/js/plugins/daterangepicker/daterangepicker.min.css')}}" rel="stylesheet">
 @endsection
 @section('content')
@@ -13,10 +11,6 @@
             <div class="row">
                 <div class="col-sm-12">
                     <h3 class="pull-left page-title"><i class="fa fa-trash-o"></i> {{__('page.advanced_delete')}}</h3>
-                    <ol class="breadcrumb pull-right">
-                        <li><a href="{{route('home')}}">{{__('page.home')}}</a></li>
-                        <li class="active">{{__('page.advanced_delete')}}</li>
-                    </ol>
                 </div>
             </div>    
         

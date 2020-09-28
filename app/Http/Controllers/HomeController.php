@@ -96,7 +96,7 @@ class HomeController extends Controller
     }
 
     public function advanced_delete_verify(Request $request) {
-        $request_data = session(['advanced_delete_request_data']);
+        $request_data = session('advanced_delete_request_data');
         $verification_code = $request->get('verification_code');
         if($verification_code != $request_data['verification_code']) {
             $response_data = ['status' => 400, 'message' => __('page.incorrect_verificaiton_code')];

@@ -4,6 +4,7 @@ return [
 
     // ********  Login Page  ********
     'sign_in' => 'Sign In',
+    'email' => 'Email',
     'username' => 'Username',
     'password' => 'Password',
     'remember_me' => 'Remember Me',
