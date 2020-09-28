@@ -121,6 +121,7 @@ return [
     'all_users' => 'Todos los usarios',
     'request' => 'Solicitud',
     'verification_code' => 'Código de verificación',
+    'incorreect_verification_code' => 'código de verificación incorrecto',
     'input_verification_code' => 'Por favor revise su correo electrónico y luego ingrese el código de verificación.',
     'confirm' => 'Confirm',
     'invalid_email_address' => 'Dirección de correo electrónico no válida',

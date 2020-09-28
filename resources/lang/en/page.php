@@ -124,6 +124,7 @@ return [
     'all_users' => 'All Users',
     'request' => 'Request',
     'verification_code' => 'Verification Code',
+    'incorrect_verification_code' => 'Incorrect verification code',
     'input_verification_code' => 'Please check your email and then enter the verification code.',
     'confirm' => 'Confirm',
     'invalid_email_address' => 'Invalid Email Address',
