@@ -45,13 +45,11 @@
                                         array_push($user_name_array, $user->name);
                                     }
                                 @endphp
-                                <td>{{implode(", ", $user_name_array)}}</td>
-                            </tr>
-                            <tr>
-                                <td>{{__('page.all_users')}}</td>
                                 <td>
-                                    @if ($data['all_users'] == 1)
-                                        {{__('page.yes')}}
+                                    @if (count($user_name_array))
+                                        {{implode(", ", $user_name_array)}}
+                                    @else
+                                        {{__('page.all_users')}}
                                     @endif
                                 </td>
                             </tr>
