@@ -54,6 +54,7 @@ class UserController extends Controller
         ]);
         $user = Auth::user();
         $user->name = $request->get("name");
+        $user->email = $request->get("email");
         $user->phone_number = $request->get("phone_number");
 
         if($request->get('password') != ''){
@@ -72,12 +73,12 @@ class UserController extends Controller
     public function edituser(Request $request){
         $request->validate([
             'name'=>'required',
-            // 'company'=>'required',
             'phone'=>'required',
             'password' => 'confirmed',
         ]);
         $user = User::find($request->get("id"));
         $user->name = $request->get("name");
+        $user->email = $request->get("email");
         $user->company_id = $request->get("company");
         $user->phone_number = $request->get("phone");
 
@@ -99,6 +100,7 @@ class UserController extends Controller
         
         User::create([
             'name' => $request->get('name'),
+            'email' => $request->get('email'),
             'company_id' => $request->get('company'),
             'phone_number' => $request->get('phone_number'),
             'role_id' => $request->get('role'),

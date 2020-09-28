@@ -41,6 +41,7 @@
                                 <tr class="bg-blue">
                                     <th style="width:30px;">#</th>
                                     <th>{{__('page.username')}}</th>
+                                    <th>{{__('page.email')}}</th>
                                     <th>{{__('page.company')}}</th>
                                     <th>{{__('page.role')}}</th>
                                     <th>{{__('page.phone_number')}}</th>
@@ -54,6 +55,7 @@
                                     <tr>
                                         <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                         <td class="username">{{$item->name}}</td>
+                                        <td class="email">{{$item->email}}</td>
                                         <td class="company" data-id="{{$item->company_id}}">@isset($item->company->name) {{$item->company->name}} @endisset</td>
                                         <td class="role" data-id="{{$item->role_id}}">{{$item->role->name}}</td>
                                         <td class="phone">{{$item->phone_number}}</td>
@@ -96,6 +98,13 @@
                             <label class="control-label">{{__('page.username')}}</label>
                             <input class="form-control" type="text" name="name" id="name" required placeholder="{{__('page.username')}}">
                             <span id="name_error" class="invalid-feedback">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{__('page.email')}}</label>
+                            <input class="form-control" type="email" name="email" id="email" required placeholder="{{__('page.email')}}">
+                            <span id="email_error" class="invalid-feedback">
                                 <strong></strong>
                             </span>
                         </div>
@@ -161,11 +170,18 @@
                 <form action="" id="edit_form" method="post">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="id" id="edit_id" />                    
+                        <input type="hidden" name="id" id="edit_id" />
                         <div class="form-group">
                             <label class="control-label">{{__('page.username')}}</label>
                             <input class="form-control" type="text" name="name" id="edit_name" required placeholder="{{__('page.username')}}">
                             <span id="edit_name_error" class="invalid-feedback">
+                                <strong></strong>
+                            </span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">{{__('page.email')}}</label>
+                            <input class="form-control" type="email" name="email" id="edit_email" required placeholder="{{__('page.email')}}">
+                            <span id="edit_email_error" class="invalid-feedback">
                                 <strong></strong>
                             </span>
                         </div>
@@ -279,11 +295,13 @@
         $(".btn-edit").click(function(){
             let user_id = $(this).attr("data-id");
             let username = $(this).parents('tr').find(".username").text().trim();
+            let email = $(this).parents('tr').find(".email").text().trim();
             let phone = $(this).parents('tr').find(".phone").text().trim();
 
             $("#edit_form input.form-control").val('');
             $("#editModal #edit_id").val(user_id);
             $("#editModal #edit_name").val(username);
+            $("#editModal #edit_email").val(email);
             $("#editModal #edit_phone").val(phone);
 
             $("#editModal").modal();
@@ -296,17 +314,14 @@
                 dataType: 'json',
                 data: $('#edit_form').serialize(),
                 success : function(data) {
-                    console.log(data);
-                    if(data == 'success') {
+                    if (data == 'success') {
                         alert('Updated successfully.');
                         window.location.reload();
-                    }
-                    else if(data.message == 'The given data was invalid.') {
+                    } else if (data.message == 'The given data was invalid.') {
                         alert(data.message);
                     }
                 },
                 error: function(data) {
-                    console.log(data.responseJSON);
                     if(data.responseJSON.message == 'The given data was invalid.') {
                         let messages = data.responseJSON.errors;
                         if(messages.name) {

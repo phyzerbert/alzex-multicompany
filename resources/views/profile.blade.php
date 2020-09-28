@@ -99,6 +99,13 @@
                                             <span class="form-text text-success">{{$message}}</span>
                                         @enderror
                                     </div>
+                                    <div class="form-group">
+                                        <label>{{__('page.email')}}</label>
+                                        <input type="email" name="email" value="{{$user->email}}" class="form-control">
+                                        @error('email')
+                                            <span class="form-text text-success">{{$message}}</span>
+                                        @enderror
+                                    </div>
 
                                     <div class="form-group">
                                         <label>{{__('page.phone_number')}}</label>
