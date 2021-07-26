@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container content">
             <div class="card">
                 <div class="card-header">
@@ -40,7 +40,7 @@
                         <li class="nav-item"><a href="#transfer" class="nav-link" data-toggle="tab">{{__('page.transfer')}}</a></li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="expense">                            
+                        <div class="tab-pane fade show active" id="expense">
                             <form action="{{route('transaction.expense')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
@@ -60,8 +60,8 @@
                                     <label>{{__('page.withdraw_from')}}:</label>
                                     <select data-placeholder="{{__('page.withdraw_from')}}" name="account" class="form-control form-control-select2-icons" required data-fouc>
                                         @foreach ($accounts as $account)
-                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>                                            
-                                        @endforeach                               
+                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>
+                                        @endforeach
                                     </select>
                                     @error('account')
                                         <span class="form-text text-success">{{ $message }}</span>
@@ -123,8 +123,8 @@
                                     <label>{{__('page.target_account')}}:</label>
                                     <select data-placeholder="{{__('page.target_account')}}" name="account" class="form-control form-control-select2-icons" required data-fouc>
                                         @foreach ($accounts as $account)
-                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>                                            
-                                        @endforeach                             
+                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>
+                                        @endforeach
                                     </select>
                                     @error('account')
                                         <span class="form-text text-success">{{ $message }}</span>
@@ -163,7 +163,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="tab-pane fade" id="transfer">                            
+                        <div class="tab-pane fade" id="transfer">
                             <form action="{{route('transaction.transfer')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
@@ -183,8 +183,8 @@
                                     <label>{{__('page.withdraw_from')}}:</label>
                                     <select data-placeholder="{{__('page.withdraw_from')}}" name="account" class="form-control form-control-select2-icons" required data-fouc>                                        
                                         @foreach ($accounts as $account)
-                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>                                            
-                                        @endforeach                               
+                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>
+                                        @endforeach
                                     </select>
                                     @error('account')
                                         <span class="form-text text-success">{{ $message }}</span>
@@ -195,8 +195,8 @@
                                     <label>{{__('page.target_account')}}:</label>
                                     <select data-placeholder="{{__('page.target_account')}}" name="target" class="form-control form-control-select2-icons" required data-fouc>
                                         @foreach ($accounts as $account)
-                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>                                            
-                                        @endforeach                              
+                                            <option value="{{$account->id}}" data-icon="wallet">{{$account->name}}</option>
+                                        @endforeach
                                     </select>
                                     @error('target')
                                         <span class="form-text text-success">{{ $message }}</span>
@@ -260,13 +260,13 @@
 	{{-- <script src="{{asset('master/global_assets/js/plugins/number/jquery.number.min.js')}}"></script> --}}
     <script>
         $(document).ready(function () {
-            $('input.pickadate').daterangepicker({ 
+            $('input.pickadate').daterangepicker({
                 singleDatePicker: true,
                 locale: {
                     format: 'YYYY-MM-DD'
                 }
             });  
-            // $("input[name='amount']").number(true)          
+            // $("input[name='amount']").number(true)
         });
     </script>
     

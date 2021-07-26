@@ -209,7 +209,7 @@ class TransactionController extends Controller
         $categories = $user->categories; 
         $company = $user->company;
         $accounts = $company->accounts;
-        return view('transaction.create', compact('users', 'company', 'categories', 'accounts'));
+        return view('transaction.create', compact('company', 'categories', 'accounts'));
     }
 
     public function expense(Request $request){
