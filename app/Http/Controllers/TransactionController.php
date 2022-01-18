@@ -240,7 +240,7 @@ class TransactionController extends Controller
 
             $destinationPath = public_path('uploaded/transaction_attachments');
             $img = Image::make($image->path());
-            $img->resize(500, 500, function ($constraint) {
+            $img->resize(1024, 1024, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
         }
@@ -282,7 +282,7 @@ class TransactionController extends Controller
 
             $destinationPath = public_path('uploaded/transaction_attachments');
             $img = Image::make($image->path());
-            $img->resize(500, 500, function ($constraint) {
+            $img->resize(1024, 1024, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
         }
@@ -332,7 +332,7 @@ class TransactionController extends Controller
 
             $destinationPath = public_path('uploaded/transaction_attachments');
             $img = Image::make($image->path());
-            $img->resize(500, 500, function ($constraint) {
+            $img->resize(1024, 1024, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
         }
@@ -434,10 +434,10 @@ class TransactionController extends Controller
 
             $destinationPath = public_path('uploaded/transaction_attachments');
             $img = Image::make($image->path());
-            $img->resize(500, 500, function ($constraint) {
+            $img->resize(1024, 1024, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
-            
+
         }
 
         $item->save();
