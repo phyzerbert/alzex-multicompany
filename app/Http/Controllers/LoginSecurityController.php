@@ -17,6 +17,7 @@ class LoginSecurityController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('2fa');
     }
 
     /**
