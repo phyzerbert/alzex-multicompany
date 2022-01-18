@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/2fa_google_authenticator';
 
     /**
      * Create a new controller instance.
