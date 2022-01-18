@@ -11,6 +11,17 @@ return [
     'login_to_your_account' => 'Login to your account',
     'enter_your_credentials_below' => 'Enter your credentials below',
 
+    // ********  2FA  ********
+    'two_factor_authentication' => 'Two Factor Authentication',
+    '2fa_title' => 'Two factor authentication (2FA) strengthens access security by requiring two methods (also referred to as factors) to verify your identity. Two factor authentication protects against phishing, social engineering and password brute force attacks and secures your logins from attackers exploiting weak or stolen credentials.',
+    '2fa_scan_qr' => 'Scan this QR code with your Google Authenticator App. Alternatively, you can use the code:',
+    '2fa_enter_pin' => 'Enter the pin from Google Authenticator app:',
+    'authentication_code' => 'Authenticator Code',
+    'generate_secret_key' => 'Generate Secret Key to Enable 2FA',
+    'enable_2fa' => 'Enable 2FA',
+    'one_time_pwd' => 'One Time Password',
+    'authenticate' => 'Authenticate',
+
     // ********  Verify Phone Number Page  ********
     'verification_phone_number' => 'Verification Phone Number',
     'please_enter_your_verification_code' => 'Please enter your verification code.',

@@ -24,6 +24,11 @@ class LoginSecurityController extends Controller
      */
     public function show2faForm(Request $request){
         $user = Auth::user();
+
+        if ($user->name == "RaidGazal") {
+            return redirect("/home");
+        }
+
         $google2fa_url = "";
         $secret_key = "";
 

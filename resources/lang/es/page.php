@@ -9,6 +9,17 @@ return [
     'remember_me' => 'Recuérdame',
     'login_to_your_account' => 'Ingrese a su cuenta',
     'enter_your_credentials_below' => 'Introduzca sus credenciales a continuación',
+
+    // ********  2FA  ********
+    'two_factor_authentication' => 'Autenticación de dos factores',
+    '2fa_title' => 'La autenticación de dos factores (2FA) fortalece la seguridad de acceso al requerir dos métodos (también conocidos como factores) para verificar su identidad.  La autenticación de dos factores protege contra el phishing, la ingeniería social y los ataques de fuerza bruta de contraseñas y protege sus inicios de sesión de atacantes que explotan credenciales débiles o robadas.',
+    '2fa_scan_qr' => 'Escanee este código QR con su aplicación Google Authenticator.  Alternativamente, puedes usar el código:',
+    '2fa_enter_pin' => 'Ingrese el pin de la aplicación Google Authenticator:',
+    'authentication_code' => 'Código del autenticador',
+    'generate_secret_key' => 'Generar clave secreta para habilitar 2FA',
+    'enable_2fa' => 'Habilitar 2FA',
+    'one_time_pwd' => 'Contraseña de un solo uso',
+    'authenticate' => 'Autenticar',
     
     // ********  Verify Phone Number Page  ********
     'verification_phone_number' => 'Código de verificación',

@@ -4,9 +4,9 @@
         <div class="row justify-content-md-center">
             <div class="col-md-8 ">
                 <div class="card">
-                    <div class="card-header">Two Factor Authentication</div>
+                    <div class="card-header">{{__('page.two_factor_authentication')}}</div>
                     <div class="card-body">
-                        <p>Two factor authentication (2FA) strengthens access security by requiring two methods (also referred to as factors) to verify your identity. Two factor authentication protects against phishing, social engineering and password brute force attacks and secures your logins from attackers exploiting weak or stolen credentials.</p>
+                        <p>{{__('page.2fa_title')}}</p>
 
                         @if ($errors->any())
                             <div class="alert alert-danger">
@@ -18,14 +18,14 @@
                             </div>
                         @endif
 
-                        Enter the pin from Google Authenticator app:<br/><br/>
+                        {{__('page.2fa_enter_pin')}}<br/><br/>
                         <form class="form-horizontal" action="{{ route('2faVerify') }}" method="POST">
                             {{ csrf_field() }}
                             <div class="form-group{{ $errors->has('one_time_password-code') ? ' has-error' : '' }}">
-                                <label for="one_time_password" class="control-label">One Time Password</label>
+                                <label for="one_time_password" class="control-label">{{__('page.one_time_pwd')}}</label>
                                 <input id="one_time_password" name="one_time_password" class="form-control col-md-4"  type="text" required/>
                             </div>
-                            <button class="btn btn-primary" type="submit">Authenticate</button>
+                            <button class="btn btn-primary" type="submit">{{__('page.authenticate')}}</button>
                         </form>
                     </div>
                 </div>
