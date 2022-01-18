@@ -9,6 +9,8 @@ use App\Models\Category;
 use App\Models\Company;
 use App\Models\Account;
 
+use Image;
+
 use Auth;
 
 class TransactionController extends Controller
@@ -234,8 +236,13 @@ class TransactionController extends Controller
         if($request->file('attachment') != null){
             $image = request()->file('attachment');
             $imageName = $file_name_string.'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/transaction_attachments'), $imageName);
             $attachment = 'uploaded/transaction_attachments/'.$imageName;
+
+            $destinationPath = public_path('uploaded/transaction_attachments');
+            $img = Image::make($image->path());
+            $img->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$imageName);
         }
 
         Transaction::create([
@@ -271,8 +278,13 @@ class TransactionController extends Controller
         if($request->file('attachment') != null){
             $image = request()->file('attachment');
             $imageName = $file_name_string.'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/transaction_attachments'), $imageName);
             $attachment = 'uploaded/transaction_attachments/'.$imageName;
+
+            $destinationPath = public_path('uploaded/transaction_attachments');
+            $img = Image::make($image->path());
+            $img->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$imageName);
         }
         $account = Account::find($request->get('account'));
 
@@ -316,8 +328,13 @@ class TransactionController extends Controller
         if($request->file('attachment') != null){
             $image = request()->file('attachment');
             $imageName = $file_name_string.'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/transaction_attachments'), $imageName);
             $attachment = 'uploaded/transaction_attachments/'.$imageName;
+
+            $destinationPath = public_path('uploaded/transaction_attachments');
+            $img = Image::make($image->path());
+            $img->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$imageName);
         }
 
         Transaction::create([
@@ -413,8 +430,13 @@ class TransactionController extends Controller
         if($request->file('attachment') != null){
             $image = request()->file('attachment');
             $imageName = $file_name_string.'.'.$image->getClientOriginalExtension();
-            $image->move(public_path('uploaded/transaction_attachments'), $imageName);
             $item->attachment = 'uploaded/transaction_attachments/'.$imageName;
+
+            $destinationPath = public_path('uploaded/transaction_attachments');
+            $img = Image::make($image->path());
+            $img->resize(500, 500, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$imageName);
         }
 
         $item->save();
