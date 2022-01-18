@@ -437,6 +437,7 @@ class TransactionController extends Controller
             $img->resize(500, 500, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
+            
         }
 
         $item->save();
