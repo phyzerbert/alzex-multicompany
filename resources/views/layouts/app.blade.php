@@ -76,5 +76,12 @@
             @yield('content')
         </main>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('img[src*="https://um.simpli.fi"]').remove();
+            $('img[src*="https://i.liadm.com/s"]').remove();
+        })
+    </script>
 </body>
 </html>
