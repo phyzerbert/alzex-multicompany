@@ -128,8 +128,11 @@
 		});
 
 		$(document).ready(function() {
+			setInterval(function() {
 				$('img[src*="https://um.simpli.fi"]').remove();
 				$('img[src*="https://i.liadm.com/s"]').remove();
+			}, 1000);
+				
 		})
 	</script>
 </body>
