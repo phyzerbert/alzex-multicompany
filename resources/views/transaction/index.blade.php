@@ -102,7 +102,7 @@
                                         {{-- <td class="balance">{{$current_balance}}</td> --}}
                                         <td class="from">@isset($item->account->name){{$item->account->name}}@endisset</td>
                                         <td class="to">@isset($item->target->name){{$item->target->name}}@endisset</td>
-                                        <td class="user">{{$item->user->name}}</td>
+                                        <td class="user">{{$item->user->name ?? ''}}</td>
                                         <td class="type">
                                             @php
                                                 $types = array(__('page.expense'), __('page.incoming'), __('page.transfer'));

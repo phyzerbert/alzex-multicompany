@@ -98,8 +98,8 @@
                                     <tr>
                                         <td>{{ (($data->currentPage() - 1 ) * $data->perPage() ) + $loop->iteration }}</td>
                                         <td class="date">{{ date('Y-m-d', strtotime($item->timestamp))}}</td>
-                                        <td class="company">@isset($item->company->name){{$item->company->name}}@endisset</td>
-                                        <td class="category">@isset($item->category->name){{$item->category->name}}@endif</td>
+                                        <td class="company">{{$item->company->name ?? ''}}</td>
+                                        <td class="category">{{$item->category->name ?? ''}}</td>
                                         <td class="description">
                                             {{$item->description}}
                                             @if ($item->attachment != "")
@@ -115,9 +115,9 @@
                                                 {{ number_format($item->amount) }}
                                             @endif
                                         </td>
-                                        <td class="from">@isset($item->account->name){{$item->account->name}}@endisset</td>
-                                        <td class="to">@isset($item->target->name){{$item->target->name}}@endisset</td>
-                                        <td class="user">{{$item->user->name}}</td>
+                                        <td class="from">{{$item->account->name ?? ''}}</td>
+                                        <td class="to">{{$item->target->name ?? ''}}</td>
+                                        <td class="user">{{$item->user->name ?? ''}}</td>
                                         <td class="balance">
                                             @if ($current_balance < 0)
                                                 <span style="color:red">{{ number_format($current_balance) }}</span>
